@@ -5,6 +5,7 @@ import { authRouter } from './auth'
 import { userRouter } from './user';
 import { categoryRouter } from './category';
 import { articleRouter } from './article';
+import { uploadRouter } from './upload';
 
 const protectedRouter = new Router();
 
@@ -15,5 +16,7 @@ protectedRouter.use(userRouter.routes()).use(userRouter.allowedMethods())
 protectedRouter.use(categoryRouter.routes()).use(categoryRouter.allowedMethods())
 // article 相关的路由
 protectedRouter.use(articleRouter.routes()).use(articleRouter.allowedMethods())
+// 文件上传
+protectedRouter.use(uploadRouter.routes()).use(uploadRouter.allowedMethods())
 
 export { protectedRouter, authRouter };

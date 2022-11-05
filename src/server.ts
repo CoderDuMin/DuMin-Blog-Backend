@@ -10,9 +10,18 @@ import { JWT_SECRET } from './constants';
 import {logger} from './logger'
 import {protectedRouter,authRouter} from './routes'
 
+const koaStatic = require('koa-static')
+const path = require('path')
+
+
+
+
 createConnection().then(()=>{
   // 初始化 Koa 应用实例
   const app = new Koa();
+
+  const staticPath = path.join(__dirname, '/upload') // 根目录
+  app.use(koaStatic(staticPath))
 
   //日志中间件
   app.use(logger())
@@ -33,8 +42,8 @@ createConnection().then(()=>{
   app.use(protectedRouter.routes()).use(protectedRouter.allowedMethods());
 
   // 运行服务器
-  app.listen(3000,()=>{
-    console.log('端口3000成功启动服务')
+  app.listen(5002,()=>{
+    console.log('端口5002成功启动服务')
   });
 })
 .catch((err: string) => console.log('TypeORM connection error:', err))
