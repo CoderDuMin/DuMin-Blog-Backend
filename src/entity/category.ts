@@ -7,10 +7,11 @@ export class Category {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    length: 255
-  })
-  type: string;
+  @Column()
+  type: number;
+
+  @Column()
+  label: string;
 
   @Column()
   status: number;

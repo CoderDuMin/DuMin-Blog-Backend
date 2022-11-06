@@ -44,6 +44,7 @@ export default class CategoryController {
     const params = ctx.request.body
     const newCategory = new Category()
     newCategory.type = params.type
+    newCategory.label = params.label
     newCategory.status = 0
     const res = await categoryRepository.insert(newCategory);
     ctx.status = 200

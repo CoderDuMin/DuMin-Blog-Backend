@@ -112,8 +112,10 @@ export default class ArticleController {
     const params = ctx.request.body
     const newArticle = new Article()
     newArticle.createTime = new Date()
+    newArticle.editTime = newArticle.createTime
     newArticle.content = params.content
     newArticle.title = params.title
+    newArticle.favorCount = 0
     newArticle.type = params.type || 0
     newArticle.isPublic = params.isPublic || 0
     newArticle.userId = ctx.state.user.id
