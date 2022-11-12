@@ -4,7 +4,7 @@
 
 ## 使用技术栈
 
-一个使用 KOA2 + Typeorm + mysql +jwt 搭建的记梦谷服务端
+一个使用 KOA2 + TypeScript + Typeorm + mysql +jwt 搭建的记梦谷服务端
 
 ## 使用说明
 
