@@ -1,10 +1,10 @@
-# DreamBook-BackEnd
+# DuminBlog-BackEnd
 
-一个简易的记梦本app服务端
+DuminBlog的服务端
 
 ## 使用技术栈
 
-一个使用 KOA2 + TypeScript + Typeorm + mysql +jwt 搭建的记梦谷服务端
+一个使用 KOA2 + TypeScript + Typeorm + mysql +jwt 搭建的个人博客服务端
 
 ## 使用说明
 
