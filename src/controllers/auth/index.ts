@@ -20,7 +20,7 @@ export default class AuthController {
       .getOne();
  
     if (!user) {
-      ctx.status = 401;
+      ctx.status = 400;
       ctx.body = { message: '用户名不存在' };
     } else if (await argon2.verify(user.password, ctx.request.body.password)) {
       ctx.status = 200;
@@ -35,7 +35,7 @@ export default class AuthController {
         msg:'登录成功'
       };
     } else {
-      ctx.status = 401;
+      ctx.status = 400;
       ctx.body = { message: '密码错误' };
     }
   }
