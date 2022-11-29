@@ -1,6 +1,7 @@
 // src/controllers/user.ts
 import { Context } from 'koa';
-import {getManager} from 'typeorm'
+import { User } from '../../entity/user';
+import {getManager,createQueryBuilder} from 'typeorm'
 import {Article} from '../../entity/article'
  
 export default class ArticleController {
@@ -34,8 +35,13 @@ export default class ArticleController {
   }
   // 显示文章详情
   public static async showArticleDetail(ctx: Context) {
-    const articleRepository = getManager().getRepository(Article);
-    const article = await articleRepository.findOne({where:{status:0,id:ctx.params.id}});
+    // const articleRepository = getManager().getRepository(Article);
+    const queryBuilder = createQueryBuilder(Article,'article')
+    //关联查询
+    const article = await queryBuilder
+    .leftJoinAndMapOne('article.userId',User,'user','user.id = article.userId')
+    .where("article.id = :id and article.status = 0",{id:ctx.params.id})
+    .getOne()
     if(!article){
       ctx.status = 400
       ctx.body = {

@@ -1,7 +1,7 @@
 
 // src/entity/user.ts
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn,OneToMany} from 'typeorm';
+import { Article } from './article'
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -23,4 +23,7 @@ export class User {
 
   @Column()
   gender: number;
+
+  @OneToMany(type => Article, article => article.title )
+  article:Article
 }
