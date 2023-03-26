@@ -20,4 +20,4 @@ protectedRouter.use(articleRouter.routes()).use(articleRouter.allowedMethods())
 // 文件上传
 protectedRouter.use(uploadRouter.routes()).use(uploadRouter.allowedMethods())
 
-export { protectedRouter, authRouter };
+export { protectedRouter, authRouter,powerRouter };

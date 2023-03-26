@@ -7,7 +7,7 @@ export default class powerController {
     ctx.status = 200;
     ctx.body = {
       code:ctx.status,
-      data:(powerData as any)?.data || [],
+      data:powerData || [],
       msg:'请求成功'
     };
   }
