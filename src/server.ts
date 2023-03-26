@@ -43,8 +43,8 @@ createConnection().then(()=>{
   app.use(protectedRouter.routes()).use(protectedRouter.allowedMethods());
 
   // 运行服务器
-  app.listen(5002,()=>{
-    console.log('端口5002成功启动服务')
+  app.listen(5006,()=>{
+    console.log('端口5006成功启动服务')
   });
 })
 .catch((err: string) => console.log('TypeORM connection error:', err))

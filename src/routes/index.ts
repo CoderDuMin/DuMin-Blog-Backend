@@ -6,7 +6,7 @@ import { userRouter } from './user';
 import { categoryRouter } from './category';
 import { articleRouter } from './article';
 import { uploadRouter } from './upload';
-import { powerRouter } from './article'
+import { powerRouter } from './powerscreen'
 
 const protectedRouter = new Router();
 
