@@ -8,7 +8,7 @@ import 'reflect-metadata';
 
 import { JWT_SECRET } from './constants';
 import {logger} from './logger'
-import {protectedRouter,authRouter} from './routes'
+import {protectedRouter,authRouter,powerRouter} from './routes'
 
 const koaStatic = require('koa-static')
 const path = require('path')
@@ -33,6 +33,7 @@ createConnection().then(()=>{
 
   // 无需校验token
   app.use(authRouter.routes()).use(authRouter.allowedMethods());
+  app.use(powerRouter.routes()).use(powerRouter.allowedMethods());
 
   // 注册 JWT 中间件
   app.use(jwt({ secret: JWT_SECRET })
